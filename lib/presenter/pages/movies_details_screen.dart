@@ -89,8 +89,8 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                       },
                       style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
+                            WidgetStateProperty.resolveWith<Color>(
+                          (Set<WidgetState> states) {
                             if (_selectedIndex == 0) {
                               return AppColors.primaryBackgroundColor;
                             }
@@ -116,8 +116,8 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                       },
                       style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
+                            WidgetStateProperty.resolveWith<Color>(
+                          (Set<WidgetState> states) {
                             if (_selectedIndex == 1) {
                               return AppColors.primaryBackgroundColor;
                             }
@@ -143,8 +143,8 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                       },
                       style: ButtonStyle(
                         backgroundColor:
-                            MaterialStateProperty.resolveWith<Color>(
-                          (Set<MaterialState> states) {
+                            WidgetStateProperty.resolveWith<Color>(
+                          (Set<WidgetState> states) {
                             if (_selectedIndex == 2) {
                               return AppColors.primaryBackgroundColor;
                             }
