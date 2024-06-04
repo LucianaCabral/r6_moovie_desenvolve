@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:r6_moovie_app/presenter/pages/favorites/favorites_movies_screen.dart';
 import 'package:r6_moovie_app/presenter/widgets/details/cast.dart';
 import 'package:r6_moovie_app/presenter/widgets/details/review.dart';
 import 'package:r6_moovie_app/resources/app_colors.dart';
@@ -13,7 +14,6 @@ import '../../widgets/details/info_row.dart';
 import '../../widgets/details/media_detail_header.dart';
 import '../../widgets/details/overview.dart';
 import '../../widgets/comon/favorite_toggle_button.dart';
-import '../favorites/favorites_screen.dart';
 
 class MovieDetailsScreen extends StatefulWidget {
   final dynamic item;
@@ -47,7 +47,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const FavoritesScreen()),
+                    builder: (context) => const FavoritesMoviesScreen()),
               );
             },
           ),
@@ -55,9 +55,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
       ),
       body: BlocBuilder<FavoriteBloc, FavoriteState>(
         builder: (context, state) {
-          bool isFavorite = false;
           if (state is FavoritesLoadedState) {
-            isFavorite =
                 state.favoriteMovies.any((movie) => movie.id == movie.id);
           }
 
