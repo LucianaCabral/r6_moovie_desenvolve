@@ -42,7 +42,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.account_circle),
+            icon: const Icon(Icons.bookmark_sharp),
             onPressed: () {
               Navigator.push(
                 context,
