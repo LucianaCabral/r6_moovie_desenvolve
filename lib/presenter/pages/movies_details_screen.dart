@@ -1,12 +1,11 @@
-// ignore_for_file: unused_local_variable
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:r6_moovie_app/presenter/widgets/details/cast.dart';
+import 'package:r6_moovie_app/presenter/widgets/details/review.dart';
 import 'package:r6_moovie_app/resources/app_colors.dart';
 import 'package:r6_moovie_app/resources/app_strings.dart';
 import 'package:r6_moovie_app/utils/utils.dart';
-import 'package:r6_moovie_app/presenter/widgets/details/cast.dart';
-import 'package:r6_moovie_app/presenter/widgets/details/review.dart';
+
 import '../../domain/entities/movie.dart';
 import '../bloc/favorites/favorite_bloc.dart';
 import '../bloc/favorites/favorite_state.dart';
@@ -22,7 +21,6 @@ class MovieDetailsScreen extends StatefulWidget {
   const MovieDetailsScreen({super.key, required this.item});
 
   @override
-  // ignore: library_private_types_in_public_api
   _MovieDetailsScreenState createState() => _MovieDetailsScreenState();
 }
 
