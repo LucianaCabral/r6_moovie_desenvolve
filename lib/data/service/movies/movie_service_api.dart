@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:dio/dio.dart';
 import 'package:retrofit/http.dart';
-import '../models/movies/movies_response.dart';
+import '../../models/movies/movies_response.dart';
 part 'movie_service_api.g.dart';
 
 @RestApi(baseUrl: 'https://api.themoviedb.org/3')

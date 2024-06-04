@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:r6_moovie_app/resources/app_colors.dart';
 import 'package:r6_moovie_app/resources/asset_path.dart';
 
-import 'login_page.dart';
+import 'login/login_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

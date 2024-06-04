@@ -5,9 +5,9 @@ import '../../../domain/entities/movie.dart';
 import '../../../domain/entities/series.dart';
 import '../../bloc/favorites/favorite_bloc.dart';
 import '../../bloc/favorites/favorite_state.dart';
-import '../../pages/movies_details_screen.dart';
-import '../../pages/series_details_screen.dart';
-import 'favorite_toggle_button.dart';
+import '../../pages/movies/movies_details_screen.dart';
+import '../../pages/series/series_details_screen.dart';
+import '../comon/favorite_toggle_button.dart';
 
 class MediaList extends StatelessWidget {
   final List<dynamic>? mediaList;

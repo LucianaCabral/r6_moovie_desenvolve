@@ -1,35 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:r6_moovie_app/presenter/pages/favorites/favorites_series_screen.dart';
+import 'package:r6_moovie_app/resources/app_colors.dart';
+import 'package:r6_moovie_app/utils/utils.dart';
 import 'package:r6_moovie_app/presenter/widgets/details/cast.dart';
 import 'package:r6_moovie_app/presenter/widgets/details/review.dart';
-import 'package:r6_moovie_app/resources/app_colors.dart';
-import 'package:r6_moovie_app/resources/app_strings.dart';
-import 'package:r6_moovie_app/utils/utils.dart';
 
-import '../../domain/entities/movie.dart';
-import '../bloc/favorites/favorite_bloc.dart';
-import '../bloc/favorites/favorite_state.dart';
-import '../widgets/details/info_row.dart';
-import '../widgets/details/media_detail_header.dart';
-import '../widgets/details/overview.dart';
-import '../widgets/home/favorite_toggle_button.dart';
-import 'favorites_screen.dart';
+import '../../../domain/entities/series.dart';
+import '../../../resources/app_strings.dart';
+import '../../bloc/favorites/favorite_bloc.dart';
+import '../../bloc/favorites/favorite_state.dart';
+import '../../widgets/details/info_row.dart';
+import '../../widgets/details/media_detail_header.dart';
+import '../../widgets/details/overview.dart';
+import '../../widgets/comon/favorite_toggle_button.dart';
 
-class MovieDetailsScreen extends StatefulWidget {
+class SeriesDetailsScreen extends StatefulWidget {
   final dynamic item;
 
-  const MovieDetailsScreen({super.key, required this.item});
+  const SeriesDetailsScreen({super.key, required this.item});
 
   @override
-  _MovieDetailsScreenState createState() => _MovieDetailsScreenState();
+  // ignore: library_private_types_in_public_api
+  _SeriesDetailsScreenState createState() => _SeriesDetailsScreenState();
 }
 
-class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
+class _SeriesDetailsScreenState extends State<SeriesDetailsScreen> {
   int _selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    final Movie movie = widget.item;
+    final Series series = widget.item;
 
     return Scaffold(
       appBar: AppBar(
@@ -47,7 +48,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const FavoritesScreen()),
+                    builder: (context) => FavoritesSeriesScreen()),
               );
             },
           ),
@@ -55,10 +56,13 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
       ),
       body: BlocBuilder<FavoriteBloc, FavoriteState>(
         builder: (context, state) {
+          // ignore: unused_local_variable
           bool isFavorite = false;
           if (state is FavoritesLoadedState) {
             isFavorite =
-                state.favoriteMovies.any((movie) => movie.id == movie.id);
+                state.favoriteSeries.any((series) => series.id == series.id);
+            isFavorite =
+                state.favoriteSeries.any((series) => series.id == series.id);
           }
 
           return SingleChildScrollView(
@@ -68,16 +72,17 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                 Padding(
                   padding: const EdgeInsets.only(bottom: 20),
                   child: MediaDetailHeader(
-                    media: movie,
+                    media: series,
                     height: 250,
-                    action: FavoriteToggleButton(media: movie),
+                    action: FavoriteToggleButton(media: series),
                   ),
                 ),
                 InfoRow(
-                    releaseDate: Utils.formatDateToBrazilian(movie.releaseDate),
-                    vote: movie.voteCount.toString(),
-                    popularity: movie.popularity.toString()),
-                const SizedBox(height: 5),
+                  releaseDate: Utils.formatDateToBrazilian(series.firstAirDate),
+                  vote: series.voteAverage.toString(),
+                  popularity: series.name,
+                ),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -99,12 +104,12 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                         ),
                       ),
                       child: Text(
-                        AppStrings.aboutMovie,
+                        AppStrings.aboutSerie,
                         style: TextStyle(
                           color: _selectedIndex == 0
                               ? AppColors.primaryText
                               : AppColors.secondaryText,
-                          fontSize: 13,
+                          fontSize: 14,
                         ),
                       ),
                     ),
@@ -165,14 +170,14 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(10.0),
                   child: _selectedIndex == 0
-                      ? OverView(movie.overview.isEmpty
-                          ? AppStrings.noLanguageMovie
-                          : movie.overview)
+                      ? OverView(series.overview.isEmpty
+                          ? AppStrings.noLanguageSerie
+                          : series.overview)
                       : _selectedIndex == 1
-                          ? Review(movie.voteAverage.toString())
-                          : Cast(movie.title),
+                          ? Review(series.voteAverage.toString())
+                          : Cast(series.name),
                 ),
               ],
             ),

@@ -1,7 +1,7 @@
 import '../../domain/entities/movie.dart';
 import '../../domain/repository/movie_repository.dart';
 import '../network/source/local/movies/local_data_source_movies.dart';
-import '../network/source/remote/movie_data_source.dart';
+import '../network/source/remote/movies/movie_data_source.dart';
 
 class MoviesRepositoryImpl implements MoviesRepository {
   final MovieDataSource moviesDataSource;

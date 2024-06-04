@@ -3,7 +3,7 @@ import 'package:r6_moovie_app/resources/app_colors.dart';
 import 'package:r6_moovie_app/resources/app_strings.dart';
 import 'package:r6_moovie_app/resources/app_values.dart';
 
-import '../../pages/favorites_screen.dart';
+import '../../pages/favorites/favorites_screen.dart';
 
 class NavBarMain extends StatelessWidget {
   const NavBarMain({super.key});

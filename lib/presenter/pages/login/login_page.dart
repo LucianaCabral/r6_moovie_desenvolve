@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:r6_moovie_app/resources/app_values.dart';
 import 'package:r6_moovie_app/resources/asset_path.dart';
 
-import '../../main.dart';
-import '../../resources/app_colors.dart';
-import '../../resources/app_strings.dart';
+import '../../../main.dart';
+import '../../../resources/app_colors.dart';
+import '../../../resources/app_strings.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
