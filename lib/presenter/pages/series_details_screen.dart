@@ -43,7 +43,7 @@ class _SeriesDetailsScreenState extends State<SeriesDetailsScreen> {
         ),
         actions: [
           IconButton(
-            icon: const Icon(Icons.account_circle),
+            icon: const Icon(Icons.bookmark_sharp),
             onPressed: () {
               Navigator.push(
                 context,
