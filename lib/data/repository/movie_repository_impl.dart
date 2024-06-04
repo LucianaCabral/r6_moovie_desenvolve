@@ -31,4 +31,9 @@ class MoviesRepositoryImpl implements MoviesRepository {
   Future<void> removeFromFavorites(Movie movie) async {
     localDataSourceMovies.removeFromFavorites(movie);
   }
+
+  @override
+  Future<void> saveMovies(List<Movie> movies) async {
+    await localDataSourceMovies.saveMovies(movies);
+  }
 }

@@ -7,6 +7,7 @@ import 'local_data_source_movies.dart';
 
 class LocalDataSourceMoviesImpl implements LocalDataSourceMovies {
   static const String _favoritesKey = 'favoritesKey';
+  static const String _moviesKey = 'moviesKey';
 
   @override
   Future<void> addToFavorites(Movie movie) async {
@@ -45,5 +46,33 @@ class LocalDataSourceMoviesImpl implements LocalDataSourceMovies {
       return decoded.map((json) => Movie.fromJson(json)).toList();
     }
     return [];
+  }
+
+  @override
+  Future<void> saveMovies(List<Movie> movies)  async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final List<Map<String, dynamic>> movieJsonList = movies.map((movie) => movie.toJson()).toList();
+      final String moviesJson = jsonEncode(movieJsonList);
+      await prefs.setString(_moviesKey, moviesJson);
+    } catch (e) {
+     throw Exception(e);
+    }
+  }
+
+  @override
+  Future<List<Movie>> getPopularMovies() async {
+    final prefs = await SharedPreferences.getInstance();
+    final String? moviesJson = prefs.getString(_moviesKey);
+    if (moviesJson != null) {
+      try {
+        final List<dynamic> movieList = jsonDecode(moviesJson);
+        return movieList.map((json) => Movie.fromJson(json)).toList();
+      } catch (e) {
+        return [];
+      }
+    } else {
+      return [];
+    }
   }
 }

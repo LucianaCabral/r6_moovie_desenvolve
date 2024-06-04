@@ -8,4 +8,7 @@ abstract class LocalDataSourceMovies {
   Future<bool> isFavorite(int id);
 
   Future<void> removeFromFavorites(Movie movie);
+
+  Future<List<Movie>> getPopularMovies();
+  Future<void> saveMovies(List<Movie> movies);
 }

@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:r6_moovie_app/domain/usecase/movies/save_movies_use_case.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/network/api_client.dart';
@@ -44,9 +45,12 @@ void setupMoviesDependencies() {
 
   getIt.registerSingleton<GetPopularMoviesUseCase>(
       GetPopularMoviesUseCase(getIt<MoviesRepository>()));
+  getIt.registerSingleton<SaveMoviesUseCase>(
+      SaveMoviesUseCase(getIt<MoviesRepository>()));
 
   getIt.registerFactory<MovieBloc>(
-      () => MovieBloc(getIt<GetPopularMoviesUseCase>()));
+          () => MovieBloc(getIt<GetPopularMoviesUseCase>()
+          ,getIt<SaveMoviesUseCase>()));
 }
 
 void setupFavoritesDependencies() {
