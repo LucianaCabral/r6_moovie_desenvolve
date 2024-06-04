@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:r6_moovie_app/domain/entities/series.dart';
+import 'package:r6_moovie_app/resources/app_strings.dart';
 import '../../bloc/favorites/favorite_bloc.dart';
 import '../../bloc/favorites/favorite_state.dart';
 
@@ -13,7 +14,7 @@ class FavoritesSeriesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Favorites Series'),
+        title: const Text(AppStrings.mySeriesFavorites),
       ),
       body: BlocBuilder<FavoriteBloc,FavoriteState>(
         builder: (context, state) {

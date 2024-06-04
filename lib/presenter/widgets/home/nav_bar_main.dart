@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:r6_moovie_app/presenter/pages/favorites/favorites_movies_screen.dart';
+import 'package:r6_moovie_app/presenter/pages/favorites/favorites_series_screen.dart';
 import 'package:r6_moovie_app/resources/app_colors.dart';
 import 'package:r6_moovie_app/resources/app_strings.dart';
 import 'package:r6_moovie_app/resources/app_values.dart';
-
-import '../../pages/favorites/favorites_screen.dart';
 
 class NavBarMain extends StatelessWidget {
   const NavBarMain({super.key});
@@ -28,12 +28,12 @@ class NavBarMain extends StatelessWidget {
             onTap: () {},
           ),
           _buildNavItem(
-            title: AppStrings.recommended,
-            onTap: () {},
+            title: AppStrings.myMoviesFavorites,
+            onTap: () => _navigateToScreen(context, FavoritesMoviesScreen()),
           ),
           _buildNavItem(
-            title: AppStrings.myFavorites,
-            onTap: () => _navigateToScreen(context, const FavoritesScreen()),
+            title: AppStrings.mySeriesFavorites,
+            onTap: () => _navigateToScreen(context,  FavoritesSeriesScreen()),
           ),
           _buildNavItem(
             title: AppStrings.about,

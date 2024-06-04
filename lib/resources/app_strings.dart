@@ -9,6 +9,8 @@ class AppStrings {
   static const String recommended = 'Recomendados';
   static const String favorites = 'Favoritos';
   static const String myFavorites = 'Meus Favoritos';
+  static const String mySeriesFavorites = 'Minhas Series Favoritos';
+  static const String myMoviesFavorites = 'Meus Filmes Favoritos';
   static const String bannerPopular = 'Banners Populares';
   static const String suggestions = 'Sugestões';
   static const String seeAll = 'Ver todos';
