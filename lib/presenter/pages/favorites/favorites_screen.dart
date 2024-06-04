@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:r6_moovie_app/presenter/widgets/home/favorite_toggle_button.dart';
+import 'package:r6_moovie_app/presenter/widgets/comon/favorite_toggle_button.dart';
 import 'package:r6_moovie_app/resources/app_strings.dart';
 
-import '../../domain/entities/movie.dart';
-import '../../domain/entities/series.dart';
-import '../bloc/favorites/favorite_bloc.dart';
-import '../bloc/favorites/favorite_event.dart';
-import '../bloc/favorites/favorite_state.dart';
+import '../../../domain/entities/movie.dart';
+import '../../../domain/entities/series.dart';
+import '../../bloc/favorites/favorite_bloc.dart';
+import '../../bloc/favorites/favorite_event.dart';
+import '../../bloc/favorites/favorite_state.dart';
 
 class FavoritesScreen extends StatefulWidget {
   const FavoritesScreen({super.key});

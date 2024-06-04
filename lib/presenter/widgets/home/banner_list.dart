@@ -4,7 +4,7 @@ import 'package:r6_moovie_app/domain/entities/movie.dart';
 import 'package:r6_moovie_app/resources/app_values.dart';
 
 import '../../../domain/entities/series.dart';
-import '../../pages/series_details_screen.dart';
+import '../../pages/series/series_details_screen.dart';
 
 class BannerList extends StatelessWidget {
   final List<dynamic>? bannerList;
