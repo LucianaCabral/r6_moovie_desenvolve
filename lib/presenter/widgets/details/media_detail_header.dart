@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:r6_moovie_app/resources/app_values.dart';
 
@@ -61,8 +62,8 @@ class MediaDetailHeader<T> extends StatelessWidget {
             children: [
               ClipRRect(
                 borderRadius: BorderRadius.circular(8.0),
-                child: Image.network(
-                  posterPathItem,
+                child: CachedNetworkImage(
+                  imageUrl: posterPathItem,
                   fit: BoxFit.cover,
                   height: 100,
                 ),

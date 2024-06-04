@@ -8,4 +8,8 @@ abstract class LocalDataSourceSeries {
   Future<bool> isFavorite(int id);
 
   Future<void> removeFromFavorites(Series series);
+
+  Future<List<Series>> getPopularSeries();
+
+  Future<void> saveSeries(List<Series> series);
 }

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:r6_moovie_app/presenter/widgets/comon/favorite_toggle_button.dart';
@@ -65,8 +66,8 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Image.network(
-                'https://image.tmdb.org/t/p/w500${movie.backdropPath}',
+              CachedNetworkImage(
+                imageUrl: 'https://image.tmdb.org/t/p/w500${movie.backdropPath}',
                 height: 150,
                 width: 200,
                 fit: BoxFit.cover,
@@ -101,8 +102,8 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Image.network(
-                'https://image.tmdb.org/t/p/w500${series.backdropPath}',
+              CachedNetworkImage(
+                imageUrl: 'https://image.tmdb.org/t/p/w500${series.backdropPath}',
                 height: 150,
                 width: 200,
                 fit: BoxFit.cover,

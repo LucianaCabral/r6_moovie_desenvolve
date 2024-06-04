@@ -9,7 +9,20 @@ class SeriesRepositoryImpl implements SeriesRepository {
 
   SeriesRepositoryImpl(this.seriesDatasource, this.localDataSourceSeries);
   @override
-  Future<List<Series>> getPopularSeries() => seriesDatasource.getPopularMSeries();
+  Future<List<Series>> getPopularSeries() async {
+    try {
+      final series = await localDataSourceSeries.getFavorites();
+      if (series.isEmpty) {
+        final remoteSeries = await seriesDatasource.getPopularMSeries();
+        await saveSeries(remoteSeries);
+        return remoteSeries;
+      } else {
+        return series;
+      }
+    } catch (e) {
+      return [];
+    }
+  }
 
   @override
   Future<void> addToFavorites(Series series) async {
@@ -29,5 +42,10 @@ class SeriesRepositoryImpl implements SeriesRepository {
   @override
   Future<void> removeFromFavorites(Series series) async {
     localDataSourceSeries.removeFromFavorites(series);
+  }
+
+  @override
+  Future<void> saveSeries(List<Series> series) async {
+    await localDataSourceSeries.saveSeries(series);
   }
 }

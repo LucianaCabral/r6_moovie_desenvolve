@@ -9,8 +9,6 @@ class MoviesRepositoryImpl implements MoviesRepository {
 
   MoviesRepositoryImpl(this.moviesDataSource, this.localDataSourceMovies);
 
-  @override
-  Future<List<Movie>> getPopularMovies() => moviesDataSource.getPopularMovies();
 
   @override
   Future<void> addToFavorites(Movie movie) async {
@@ -30,5 +28,26 @@ class MoviesRepositoryImpl implements MoviesRepository {
   @override
   Future<void> removeFromFavorites(Movie movie) async {
     localDataSourceMovies.removeFromFavorites(movie);
+  }
+
+  @override
+  Future<List<Movie>> getPopularMovies() async {
+    try {
+      final movies = await localDataSourceMovies.getPopularMovies();
+      if (movies.isEmpty) {
+        final remoteMovies = await moviesDataSource.getPopularMovies();
+        await saveMovies(remoteMovies);
+        return remoteMovies;
+      } else {
+        return movies;
+      }
+    } catch (e) {
+      return [];
+    }
+  }
+
+  @override
+  Future<void> saveMovies(List<Movie> movies) async {
+    await localDataSourceMovies.saveMovies(movies);
   }
 }

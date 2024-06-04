@@ -7,6 +7,7 @@ import 'local_data_source_series.dart';
 
 class LocalDataSourceSeriesImpl implements LocalDataSourceSeries {
   static const String _favoritesSeriesKey = 'favoritesSeriesKey';
+  static const String _seriesKey = 'seriesKey';
 
   @override
   Future<void> addToFavorites(Series series) async {
@@ -45,5 +46,34 @@ class LocalDataSourceSeriesImpl implements LocalDataSourceSeries {
       return decoded.map((json) => Series.fromJson(json)).toList();
     }
     return [];
+  }
+
+  @override
+  Future<void> saveSeries(List<Series> series) async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      final List<Map<String, dynamic>> seriesJsonList =
+          series.map((series) => series.toJson()).toList();
+      final String moviesJson = jsonEncode(seriesJsonList);
+      await prefs.setString(_seriesKey, moviesJson);
+    } catch (e) {
+      [];
+    }
+  }
+
+  @override
+  Future<List<Series>> getPopularSeries() async {
+    final prefs = await SharedPreferences.getInstance();
+    final String? seriesJson = prefs.getString(_seriesKey);
+    if (seriesJson != null) {
+      try {
+        final List<dynamic> seriesList = jsonDecode(seriesJson);
+        return seriesList.map((json) => Series.fromJson(json)).toList();
+      } catch (e) {
+        return [];
+      }
+    } else {
+      return [];
+    }
   }
 }
