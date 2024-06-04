@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 
 class ArcBannerImage extends StatelessWidget {
@@ -7,12 +8,12 @@ class ArcBannerImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.network(
-      imageUrl,
+    return CachedNetworkImage(
+      imageUrl: imageUrl,
       width: MediaQuery.of(context).size.width,
       height: 230.0,
       fit: BoxFit.cover,
-      errorBuilder: (context, error, stackTrace) {
+      errorWidget: (context, error, stackTrace) {
       return const Text('Falha ao carregar a imagem');
     },
     );

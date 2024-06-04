@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -72,8 +73,8 @@ class MediaList extends StatelessWidget {
                       children: [
                         ClipRRect(
                           borderRadius: BorderRadius.circular(10.0),
-                          child: Image.network(
-                            'https://image.tmdb.org/t/p/w500${media.backdropPath}',
+                          child: CachedNetworkImage(
+                            imageUrl:'https://image.tmdb.org/t/p/w500${media.backdropPath}',
                             fit: BoxFit.cover,
                             height: double.infinity,
                             width: double.infinity,

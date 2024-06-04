@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:r6_moovie_app/domain/usecase/movies/save_movies_use_case.dart';
+import 'package:r6_moovie_app/domain/usecase/series/save_series_use_case.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/network/api_client.dart';
@@ -86,8 +87,12 @@ void setupSeriesDependencies() {
   getIt.registerSingleton<GetPopularSeriesUseCase>(
       GetPopularSeriesUseCase(getIt<SeriesRepository>()));
 
+  getIt.registerSingleton<SaveSeriesUseCase>(
+      SaveSeriesUseCase(getIt<SeriesRepository>()));
+
   getIt.registerFactory<SeriesBloc>(
-      () => SeriesBloc(getIt<GetPopularSeriesUseCase>()));
+      () => SeriesBloc(getIt<GetPopularSeriesUseCase>(),
+      getIt<SaveSeriesUseCase>()));
 }
 
 void setupFavoritesSeriesDependencies() {

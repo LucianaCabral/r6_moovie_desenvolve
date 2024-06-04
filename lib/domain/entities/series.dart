@@ -36,4 +36,10 @@ class Series {
         posterPath: json['posterPath'],
         backdropPath: json['backdropPath']);
   }
+
+  @override
+  String toString() {
+    return '{id: $id,name: $name,overview: $overview, firstAirDate: $firstAirDate,'
+        'voteAverage: $voteAverage, posterPath: $posterPath, backdropPath: $backdropPath }';
+  }
 }
