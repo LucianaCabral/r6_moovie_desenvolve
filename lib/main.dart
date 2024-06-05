@@ -37,7 +37,6 @@ class MyApp extends StatelessWidget {
               primary: AppColors.primaryColor,
               secondary: AppColors.secondaryColor,
               surface: AppColors.primaryBackgroundColor,
-              background: AppColors.secondaryBackgroundColor,
               error: AppColors.errorColor,
               onPrimary: AppColors.secondaryText,
               onSecondary: AppColors.secondaryText,
@@ -83,7 +82,6 @@ class _MyHomePageState extends State<MyHomePage> {
       drawer: const NavBarMain(),
       body: Column(
         children: [
-          const SearchBarApp(),
           Expanded(
             child: _screens[_currentIndex],
           ),
