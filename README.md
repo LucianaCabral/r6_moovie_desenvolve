@@ -17,7 +17,7 @@ https://github.com/desenvolve06/r6_moovie_app/assets/101668192/df5753b5-768b-4dd
 
 
 
-## :pushpin:  Sobre o Projeto
+## :pushpin:  Sobre o Projeto :construction:
 
 O KoruFlux é um aplicativo desenvolvido em Dart e Flutter, que consume os dados fornecido pela API de busca de filmes e séties do site [TMDB(The Movies Database)](https://www.themoviedb.org/), explorando milhares de diferentes filmes. Ele utiliza esses dados estáticos para visualizar várias propriedades associadas aos filmes, identificando padrões nos dados e respondendo a perguntas-chave. O projeto tem como objetivo principal demonstrar a aplicação dos princípios SOLID e Clean na codificação e organização, além de implementar uma arquitetura de software sólida e robusta.
 
@@ -25,20 +25,27 @@ O KoruFlux é um aplicativo desenvolvido em Dart e Flutter, que consume os dados
 1. Tela de início do app;
 2. Tela de início: Exibe uma seleção de filmes e series mais populares. cada item é clicavel para 
 visualizar os detalhes.
-3. Tela de detalhes do Film/Series:  Mostra informações do filme e séries como: sinopse, avaliaçoes,
+3. Tela de detalhes do Filme/Series:  Mostra informações do filme e séries como: sinopse, avaliaçoes,
 título, categoria.
+4. Tela dos filmes e series favoritos
 
 ## Funcionalidades
 - Visualização de Filmes e Series Populares
 - Pesquisa de filmes por titulo.
 - Detalhes  de Filmes e Series Populares:.
+- Adicionar e remover filmes favoritos a lista de favoritos
+- Tela inicial 'offline first'
 
 
-## :rocket: Tecnologias Utilizadas
+## :rocket: Tecnologias e libs Utilizadas
 
 - [Dart](https://dart.dev/)
 - [Flutter](https://flutter.dev/)
-
+- [Shared Preferences]
+- [Dio]
+- [getIt] Injeção de dependencias
+- [retrofit]
+- [Interceptor]
 
 ## Arquitetura
 
@@ -72,6 +79,7 @@ horizontal de banners de series. Cada banner contém uma imagem de fundo e o tí
 navegação lateral (drawer) de uma aplicação.
 - **SearchBar**: Componente ppara buscar series e filmes.
 - **MovieItem**: Exibe detalhes de um filme, como título, descrição e imagem da capa.
+- **Bottom Navigation** : Componente responsável pela navegação busca, home, search
 ---
 - Tela de Detalhes
 - **archBanner_image**: Este é um widget Flutter chamado ArcBannerImage, que exibe uma
@@ -207,8 +215,6 @@ Todas as pessoas envolvidas no projeto.
     </td>
   </tr>
 </table>
-
-
 
 
 ## License
