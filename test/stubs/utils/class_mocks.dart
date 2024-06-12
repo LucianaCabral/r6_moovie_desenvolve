@@ -8,12 +8,6 @@ import 'package:r6_moovie_app/domain/repository/series_repository.dart';
 
 class MoviesRepositoryMock extends Mock implements MoviesRepository {}
 
-class MockSeriesDatasource extends Mock implements SeriesDatasource {}
-
-class MockLocalDataSourceSeries extends Mock implements LocalDataSourceSeries {}
-
 class MockMovieDataSource extends Mock implements MovieDataSource {}
 
 class MockLocalDataSourceMovies extends Mock implements LocalDataSourceMovies {}
-
-class SeriesRepositoryMock extends Mock implements SeriesRepository {}

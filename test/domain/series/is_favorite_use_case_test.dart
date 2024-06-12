@@ -4,6 +4,7 @@ import 'package:r6_moovie_app/domain/repository/series_repository.dart';
 import 'package:r6_moovie_app/domain/usecase/series/is_favorite_use_case.dart';
 
 import '../../stubs/utils/class_mocks.dart';
+import '../../stubs/utils/class_series_mocks.dart';
 
 void main() {
   late IsFavoriteSeriesUseCase isFavoriteSeriesUseCase;
