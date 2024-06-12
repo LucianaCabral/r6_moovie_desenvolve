@@ -3,7 +3,7 @@ import 'package:mocktail/mocktail.dart';
 import 'package:r6_moovie_app/domain/repository/series_repository.dart';
 import 'package:r6_moovie_app/domain/usecase/series/remove_from_favorite_use_case.dart';
 
-import '../../stubs/utils/class_mocks.dart';
+import '../../stubs/utils/class_series_mocks.dart';
 import '../../stubs/utils/stubs.dart';
 
 void main() {

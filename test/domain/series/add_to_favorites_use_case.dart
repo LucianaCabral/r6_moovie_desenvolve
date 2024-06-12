@@ -4,6 +4,7 @@ import 'package:r6_moovie_app/domain/repository/series_repository.dart';
 import 'package:r6_moovie_app/domain/usecase/series/add_to_favorites_use_case.dart';
 
 import '../../stubs/utils/class_mocks.dart';
+import '../../stubs/utils/class_series_mocks.dart';
 import '../../stubs/utils/stubs.dart';
 
 void main() {
